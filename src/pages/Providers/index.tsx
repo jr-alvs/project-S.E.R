@@ -2,8 +2,10 @@ import { Grid } from '@components/molecules/grid';
 import { Buttons } from '@components/molecules/buttons';
 import { Inputs } from '@components/molecules/inputs';
 import { Box } from '@components/atoms/Box';
+import { useNavigate } from 'react-router-dom';
 
 export const Providers = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Grid.Container columns={12}>
@@ -12,6 +14,7 @@ export const Providers = () => {
             text='Novo prestador'
             size='md'
             endIcon='person_add_alt'
+            click={() => navigate('/providers/new')}
           />
         </Grid.Item>
         <Grid.Item column={8}>

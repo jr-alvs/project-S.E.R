@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const HeaderStyle = styled.header`
   display: flex;
@@ -21,6 +22,7 @@ export const NavBar = styled.nav`
   ul {
     display: flex;
     gap: 1rem;
+    place-items: center;
   }
 `;
 
@@ -28,8 +30,9 @@ interface IItemMenuProps {
   $isActive?: boolean;
 }
 
-export const ItemMenu = styled.li<IItemMenuProps>`
+export const ItemMenu = styled(Link)<IItemMenuProps>`
   list-style: none;
+  text-decoration: none;
   text-transform: uppercase;
 
   ${({ $isActive }) => css`

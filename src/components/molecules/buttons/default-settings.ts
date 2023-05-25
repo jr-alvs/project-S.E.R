@@ -8,6 +8,7 @@ export const sizes = {
 
 export interface IDefaultProps {
   text: string;
+  click: React.MouseEventHandler<HTMLButtonElement>;
   color?: string;
   background?: string;
   size?: keyof typeof sizes;

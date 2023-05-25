@@ -9,12 +9,14 @@ export const Default = ({
   size,
   startIcon,
   endIcon,
+  click,
 }: IDefaultProps) => {
   return (
     <DefaultStyle
       $color={color}
       $background={background}
       $size={sizes[size ?? 'md']}
+      onClick={click}
     >
       {startIcon && <Icon name={startIcon} color={color} />}
       {text}

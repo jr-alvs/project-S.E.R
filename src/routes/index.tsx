@@ -14,7 +14,7 @@ export const Routes = () => {
         <Route path='home' element={<h1>Home</h1>} />
         <Route path='providers' element={<Providers />} />
         <Route path='providers/:id_provider' element={<CreateProvider />} />
-        <Route path='*' element={<Navigate to='/' />} />
+        <Route path='*' element={<Navigate to='/home' />} />
       </Route>
     </RoutesDOM>
   );
