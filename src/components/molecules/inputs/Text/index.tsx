@@ -1,4 +1,4 @@
-import { Label } from '../../../atoms/Label';
+import { Label } from '@components/atoms/Label';
 import { ContainerText, ControlText, InputText } from './styles';
 
 interface ITextProps {

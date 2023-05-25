@@ -1,4 +1,4 @@
-import logoSer from '../../../assets/logo.png';
+import logoSer from '@assets/logo.png';
 import { HeaderStyle, ItemMenu, NavBar } from './styles';
 
 export const Header = () => {

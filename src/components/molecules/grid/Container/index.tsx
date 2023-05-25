@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { ContainerGrid } from './styles';
-import { IntRange } from '../../../../interfaces/utils-types';
+import { IntRange } from '@interfaces/utils-types';
 
 interface IContainerProps {
   columns?: IntRange<1, 13>;

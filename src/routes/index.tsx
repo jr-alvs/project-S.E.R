@@ -1,7 +1,7 @@
 import { Routes as RoutesDOM, Route, Navigate } from 'react-router-dom';
-import { Providers } from '../pages/Providers';
-import { Layout } from '../components/organisms/Layout';
-import { CreateProvider } from '../pages/CreateProvider';
+import { Providers } from '@pages/Providers';
+import { Layout } from '@components/organisms/Layout';
+import { CreateProvider } from '@pages/CreateProvider';
 
 export const Routes = () => {
   return (

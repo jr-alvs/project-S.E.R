@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { IntRange } from '../../../../interfaces/utils-types';
+import { IntRange } from '@interfaces/utils-types';
 
 interface IGridContainerProps {
   $columns?: IntRange<1, 13>;

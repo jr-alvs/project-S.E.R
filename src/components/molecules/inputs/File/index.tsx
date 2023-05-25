@@ -1,6 +1,6 @@
 import { ContainerFile, ContainerIcon, DropZone } from './styles';
-import { Icon } from '../../../atoms/Icon';
-import { Label } from '../../../atoms/Label';
+import { Icon } from '@components/atoms/Icon';
+import { Label } from '@components/atoms/Label';
 
 interface IFileProps {
   label?: string;

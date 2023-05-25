@@ -1,10 +1,9 @@
-import React from 'react';
-import { Box } from '../../components/atoms/Box';
-import { Grid } from '../../components/molecules/grid';
-import { Inputs } from '../../components/molecules/inputs';
-import { Buttons } from '../../components/molecules/buttons';
+import { Box } from '@components/atoms/Box';
+import { Grid } from '@components/molecules/grid';
+import { Inputs } from '@components/molecules/inputs';
+import { Buttons } from '@components/molecules/buttons';
 
-export const CreateProvider: React.FC = () => {
+export const CreateProvider = () => {
   return (
     <Box>
       <Grid.Container columns={2}>

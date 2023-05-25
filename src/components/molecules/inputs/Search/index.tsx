@@ -1,5 +1,5 @@
-import { Icon } from '../../../atoms/Icon';
-import { Label } from '../../../atoms/Label';
+import { Icon } from '@components/atoms/Icon';
+import { Label } from '@components/atoms/Label';
 import { ContainerSearch, SearchStyle, ButtonSearch } from './styles';
 
 interface ISearchProps {

@@ -1,7 +1,7 @@
-import { Grid } from '../../components/molecules/grid';
-import { Buttons } from '../../components/molecules/buttons';
-import { Inputs } from '../../components/molecules/inputs';
-import { Box } from '../../components/atoms/Box';
+import { Grid } from '@components/molecules/grid';
+import { Buttons } from '@components/molecules/buttons';
+import { Inputs } from '@components/molecules/inputs';
+import { Box } from '@components/atoms/Box';
 
 export const Providers = () => {
   return (
