@@ -38,7 +38,12 @@ export const CreateProvider = () => {
           />
         </Grid.Item>
         <Grid.Item column={2}>
-          <Buttons.Default text='Criar prestador' />
+          <Buttons.Default
+            text='Criar prestador'
+            click={() => {
+              alert('cliquei!');
+            }}
+          />
         </Grid.Item>
       </Grid.Container>
     </Box>
