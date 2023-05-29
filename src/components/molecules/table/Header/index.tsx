@@ -6,12 +6,22 @@ interface IHeaderProps {
   labelExtractor: (item: any) => string;
 }
 
-export const Header = (props: PropsWithChildren<IHeaderProps>) => {
+export const Header = ({
+  children,
+  list,
+  keyExtractor,
+  labelExtractor,
+}: PropsWithChildren<IHeaderProps>) => {
   return (
-    <thead>
-      {props.list.map((col, index) => (
-        <td key={props.keyExtractor(index)}>{props.labelExtractor(col)}</td>
-      ))}
-    </thead>
+    <table>
+      <thead>
+        <tr>
+          {list.map((col, index) => (
+            <th key={keyExtractor(index)}>{labelExtractor(col)}</th>
+          ))}
+        </tr>
+      </thead>
+      {children}
+    </table>
   );
 };
