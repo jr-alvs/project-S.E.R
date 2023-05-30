@@ -1,7 +1,11 @@
+import { useMemo } from 'react';
+
 import { Icon } from '@components/atoms/Icon';
 import { Label } from '@components/atoms/Label';
-import { ContainerSearch, SearchStyle, ButtonSearch } from './styles';
+import { ErrorComponent } from '@/components/atoms/Error';
+
 import { DefaultSettings } from '../defaultSettings';
+import { ContainerSearch, SearchStyle, ButtonSearch } from './styles';
 
 interface ISearchProps extends DefaultSettings {
   label?: string;
@@ -18,6 +22,10 @@ export const Search = ({
   form,
   name,
 }: ISearchProps) => {
+  const { error } = useMemo(() => {
+    return form.getFieldState(name);
+  }, [form.formState.errors]);
+
   return (
     <div>
       <Label text={label} isRequired={isRequired} />
@@ -33,6 +41,8 @@ export const Search = ({
           <Icon name='search' color='#fff' />
         </ButtonSearch>
       </ContainerSearch>
+
+      {error?.message && <ErrorComponent text={error.message} />}
     </div>
   );
 };

@@ -1,6 +1,10 @@
+import { useMemo } from 'react';
+
 import { Label } from '@components/atoms/Label';
-import { ContainerTextArea, ControlTextArea, InputTextArea } from './styles';
+import { ErrorComponent } from '@/components/atoms/Error';
+
 import { DefaultSettings } from '../defaultSettings';
+import { ContainerTextArea, ControlTextArea, InputTextArea } from './styles';
 
 interface ITextAreaProps extends DefaultSettings {
   label?: string;
@@ -17,6 +21,10 @@ export const TextArea = ({
   form,
   name,
 }: ITextAreaProps) => {
+  const { error } = useMemo(() => {
+    return form.getFieldState(name);
+  }, [form.formState.errors]);
+
   return (
     <ContainerTextArea>
       <Label text={label} isRequired={isRequired} />
@@ -28,6 +36,8 @@ export const TextArea = ({
           {...form.register(name)}
         />
       </ControlTextArea>
+
+      {error?.message && <ErrorComponent text={error.message} />}
     </ContainerTextArea>
   );
 };
