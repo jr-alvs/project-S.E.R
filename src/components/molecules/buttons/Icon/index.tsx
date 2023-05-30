@@ -1,5 +1,5 @@
 import { Icon } from '../../../atoms/Icon';
-import { IDefaultProps, sizes } from '../default-settings';
+import { IDefaultProps, sizes } from '../defaultSettings';
 import { IconStyle } from './styles';
 
 interface IIconsProps extends IDefaultProps {

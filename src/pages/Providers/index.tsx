@@ -1,11 +1,15 @@
+import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+
 import { Grid } from '@components/molecules/grid';
 import { Buttons } from '@components/molecules/buttons';
 import { Inputs } from '@components/molecules/inputs';
 import { Box } from '@components/atoms/Box';
-import { useNavigate } from 'react-router-dom';
 
 export const Providers = () => {
   const navigate = useNavigate();
+  const form = useForm();
+
   return (
     <>
       <Grid.Container columns={12}>
@@ -18,7 +22,11 @@ export const Providers = () => {
           />
         </Grid.Item>
         <Grid.Item column={8}>
-          <Inputs.Search placeholder='pesquise por um usuário' />
+          <Inputs.Search
+            form={form}
+            name='search'
+            placeholder='pesquise por um usuário'
+          />
         </Grid.Item>
       </Grid.Container>
 

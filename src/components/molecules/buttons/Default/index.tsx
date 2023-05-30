@@ -1,9 +1,10 @@
 import { Icon } from '@components/atoms/Icon';
-import { IDefaultProps, sizes } from '../default-settings';
+import { IDefaultProps, sizes } from '../defaultSettings';
 import { DefaultStyle } from './styles';
 
 export const Default = ({
   text,
+  type,
   background,
   color,
   size,
@@ -13,6 +14,7 @@ export const Default = ({
 }: IDefaultProps) => {
   return (
     <DefaultStyle
+      type={type}
       $color={color}
       $background={background}
       $size={sizes[size ?? 'md']}

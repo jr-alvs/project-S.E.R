@@ -1,3 +1,5 @@
+import { ButtonHTMLAttributes } from 'react';
+
 export const sizes = {
   xs: '.5rem',
   sm: '.7rem',
@@ -6,9 +8,9 @@ export const sizes = {
   xl: '2rem',
 };
 
-export interface IDefaultProps {
+export interface IDefaultProps extends ButtonHTMLAttributes<any> {
   text: string;
-  click: React.MouseEventHandler<HTMLButtonElement>;
+  click?: React.MouseEventHandler<HTMLButtonElement>;
   color?: string;
   background?: string;
   size?: keyof typeof sizes;
