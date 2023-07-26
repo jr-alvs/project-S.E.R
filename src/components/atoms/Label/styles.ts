@@ -1,9 +1,19 @@
 import styled from 'styled-components';
 
-export const ContainerLabel = styled.label`
+interface IContainerLabelProps {
+  $color?: string;
+  $marginBottom?: string;
+}
+
+export const ContainerLabel = styled.label<IContainerLabelProps>`
   font-size: 0.85rem;
-  color: #4a5568;
   font-weight: 600;
   text-transform: uppercase;
-  margin-bottom: 5px;
+
+  ${({ $color, $marginBottom }) => {
+    return `
+    color: ${$color ?? '#4a5568'};
+    margin-bottom: ${$marginBottom ?? '0px'};
+  `;
+  }}
 `;

@@ -1,11 +1,11 @@
 import { PropsWithChildren } from 'react';
 import { ContainerGrid } from './styles';
-import { IntRange } from '@interfaces/utils-types';
+import { IntRange } from '@interfaces/types/utils-types';
 
 interface IContainerProps {
   columns?: IntRange<1, 13>;
-  rowGap?: number;
-  columnGap?: number;
+  rowGap?: IntRange<1, 200>;
+  columnGap?: IntRange<1, 200>;
 }
 
 export const Container = ({

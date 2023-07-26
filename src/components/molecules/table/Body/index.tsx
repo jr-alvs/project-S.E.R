@@ -1,17 +1,30 @@
-interface IBodyProps {
-  list: any[];
-  keyExtractor: (item: any) => string | number;
-  labelExtractor: (item: any) => string;
-}
+import { IExtractorObject, ITableProps } from '@components/molecules/table/defaultSettings';
+import { Container, ContainerRow, ContainerRowColumn } from './styles';
 
-export const Body = ({ list, keyExtractor, labelExtractor }: IBodyProps) => {
+export const Body = <T extends IExtractorObject>({
+  columns,
+  rows,
+  rowsProps,
+}: ITableProps<T>) => {
   return (
-    <tbody>
-      <tr>
-        {list.map((col, index) => (
-          <td key={keyExtractor(index)}>{labelExtractor(col)}</td>
-        ))}
-      </tr>
-    </tbody>
+    <Container>
+      {rows.map((row) => (
+        <ContainerRow key={rowsProps.keyExtractor(row)}>
+          {columns.map((column) => (
+            <ContainerRowColumn
+              hasAction={rowsProps.rowAction ? true : false}
+              onClick={() =>
+                column.key !== 'actions' && rowsProps.rowAction?.(row)
+              }
+              key={`col-${String(column.key)}-row-${rowsProps.keyExtractor(
+                row,
+              )}`}
+            >
+              {row[column.key]}
+            </ContainerRowColumn>
+          ))}
+        </ContainerRow>
+      ))}
+    </Container>
   );
 };

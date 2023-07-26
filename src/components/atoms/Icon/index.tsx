@@ -1,9 +1,11 @@
 import { ContainerIcon } from './styles';
 
-const sizes = {
+export const sizes = {
+  xs: '.5rem',
   sm: '.7rem',
-  md: '1rem',
+  md: '.85rem',
   lg: '1.3rem',
+  xl: '2rem',
 };
 
 interface IIconProps {

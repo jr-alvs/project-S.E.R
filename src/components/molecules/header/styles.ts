@@ -10,7 +10,7 @@ export const HeaderStyle = styled.header`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   img {
-    max-height: 60px;
+    max-width: 80px;
   }
 `;
 
@@ -31,9 +31,11 @@ interface IItemMenuProps {
 }
 
 export const ItemMenu = styled(Link)<IItemMenuProps>`
-  list-style: none;
   text-decoration: none;
-  text-transform: uppercase;
+
+  :hover {
+    color: #319795;
+  }
 
   ${({ $isActive }) => css`
     color: ${$isActive ? '#CE275C' : '#333'};

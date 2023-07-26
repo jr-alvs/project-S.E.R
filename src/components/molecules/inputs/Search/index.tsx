@@ -1,48 +1,38 @@
-import { useMemo } from 'react';
-
 import { Icon } from '@components/atoms/Icon';
 import { Label } from '@components/atoms/Label';
-import { ErrorComponent } from '@/components/atoms/Error';
-
-import { DefaultSettings } from '../defaultSettings';
+import { DefaultSettings } from '@components/molecules/inputs/defaultSettings';
 import { ContainerSearch, SearchStyle, ButtonSearch } from './styles';
 
 interface ISearchProps extends DefaultSettings {
   label?: string;
   placeholder?: string;
   type?: 'text' | 'email';
-  isRequired?: boolean;
+  handleClick?: (text: string) => void;
 }
 
 export const Search = ({
   label,
   placeholder,
   type,
-  isRequired,
   form,
   name,
+  handleClick,
 }: ISearchProps) => {
-  const { error } = useMemo(() => {
-    return form.getFieldState(name);
-  }, [form.formState.errors]);
+  const value = form.watch(name);
 
   return (
     <div>
-      <Label text={label} isRequired={isRequired} />
-
+      <Label text={label} />
       <ContainerSearch>
         <SearchStyle
           placeholder={placeholder}
           type={type}
           {...form.register(name)}
         />
-
-        <ButtonSearch onClick={() => {}}>
+        <ButtonSearch onClick={() => handleClick?.(value)}>
           <Icon name='search' color='#fff' />
         </ButtonSearch>
       </ContainerSearch>
-
-      {error?.message && <ErrorComponent text={error.message} />}
     </div>
   );
 };

@@ -1,15 +1,14 @@
 import { useMemo } from 'react';
-
 import { Label } from '@components/atoms/Label';
-import { ErrorComponent } from '@/components/atoms/Error';
-
-import { DefaultSettings } from '../defaultSettings';
+import { ErrorComponent } from '@components/atoms/Error';
+import { DefaultSettings } from '@components/molecules/inputs/defaultSettings';
 import { ContainerTextArea, ControlTextArea, InputTextArea } from './styles';
 
 interface ITextAreaProps extends DefaultSettings {
   label?: string;
   placeholder?: string;
   isRequired?: boolean;
+  cols?: number;
   rows?: number;
 }
 
@@ -17,12 +16,14 @@ export const TextArea = ({
   label,
   placeholder,
   isRequired,
+  cols,
   rows,
   form,
   name,
 }: ITextAreaProps) => {
-  const { error } = useMemo(() => {
-    return form.getFieldState(name);
+  const fieldState = form.getFieldState(name);
+  const error = useMemo(() => {
+    return fieldState.error;
   }, [form.formState.errors]);
 
   return (
@@ -31,9 +32,11 @@ export const TextArea = ({
 
       <ControlTextArea>
         <InputTextArea
-          rows={rows}
+          cols={cols ?? 1}
+          rows={rows ?? 3}
           placeholder={placeholder}
           {...form.register(name)}
+          onChange={() => form.clearErrors(name)}
         />
       </ControlTextArea>
 

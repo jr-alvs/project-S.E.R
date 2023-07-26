@@ -1,28 +1,34 @@
 import { Icon } from '@components/atoms/Icon';
-import { IDefaultProps, sizes } from '../defaultSettings';
+import { IDefaultProps } from '@components/molecules/buttons/defaultSettings';
 import { DefaultStyle } from './styles';
 
 export const Default = ({
   text,
-  type,
   background,
   color,
   size,
   startIcon,
   endIcon,
   click,
+  isLoading,
 }: IDefaultProps) => {
   return (
     <DefaultStyle
-      type={type}
       $color={color}
       $background={background}
-      $size={sizes[size ?? 'md']}
+      $size={size}
       onClick={click}
     >
-      {startIcon && <Icon name={startIcon} color={color} />}
-      {text}
-      {endIcon && <Icon name={endIcon} color={color} />}
+      {' '}
+      {isLoading ? (
+        <span>carregando...</span>
+      ) : (
+        <>
+          {startIcon && <Icon name={startIcon} color={color} />}
+          {text}
+          {endIcon && <Icon name={endIcon} color={color} />}
+        </>
+      )}
     </DefaultStyle>
   );
 };

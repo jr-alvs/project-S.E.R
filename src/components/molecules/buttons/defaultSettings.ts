@@ -1,3 +1,5 @@
+import theme from '@global/styles/theme';
+import { TFontSizeKeys } from '@interfaces/theme';
 import { ButtonHTMLAttributes } from 'react';
 
 export const sizes = {
@@ -11,9 +13,10 @@ export const sizes = {
 export interface IDefaultProps extends ButtonHTMLAttributes<any> {
   text: string;
   click?: React.MouseEventHandler<HTMLButtonElement>;
-  color?: string;
-  background?: string;
-  size?: keyof typeof sizes;
+  color?: keyof typeof theme.colors;
+  background?: keyof typeof theme.colors;
+  size?: TFontSizeKeys;
   startIcon?: string;
   endIcon?: string;
+  isLoading?: boolean;
 }

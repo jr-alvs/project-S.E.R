@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
-import { IntRange } from '@interfaces/utils-types';
+import { IntRange } from '@interfaces/types/utils-types';
 
 interface IGridContainerProps {
   $columns?: IntRange<1, 13>;
-  $rowGap?: number;
-  $columnGap?: number;
+  $rowGap?: IntRange<1, 200>;
+  $columnGap?: IntRange<1, 200>;
 }
 
 export const ContainerGrid = styled.div<IGridContainerProps>`

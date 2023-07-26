@@ -1,27 +1,20 @@
-import { PropsWithChildren } from 'react';
+import {
+  IExtractorObject,
+  ITableProps,
+} from '@components/molecules/table/defaultSettings';
+import { ContainerHeader, ContainerRow } from './styles';
 
-interface IHeaderProps {
-  list: any[];
-  keyExtractor: (item: any) => string | number;
-  labelExtractor: (item: any) => string;
-}
+interface IHeaderProps<T extends IExtractorObject>
+  extends Pick<ITableProps<T>, 'columns'> {}
 
-export const Header = ({
-  children,
-  list,
-  keyExtractor,
-  labelExtractor,
-}: PropsWithChildren<IHeaderProps>) => {
+export const Header = <T extends IExtractorObject>({
+  columns,
+}: IHeaderProps<T>) => {
   return (
-    <table>
-      <thead>
-        <tr>
-          {list.map((col, index) => (
-            <th key={keyExtractor(index)}>{labelExtractor(col)}</th>
-          ))}
-        </tr>
-      </thead>
-      {children}
-    </table>
+    <ContainerHeader>
+      {columns.map((column) => (
+        <ContainerRow key={String(column.key)}>{column.label}</ContainerRow>
+      ))}
+    </ContainerHeader>
   );
 };

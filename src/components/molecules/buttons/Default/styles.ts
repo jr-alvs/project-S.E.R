@@ -1,9 +1,10 @@
-import styled, { css } from 'styled-components';
+import { TColorKeys, TFontSizeKeys } from '@interfaces/theme';
+import styled from 'styled-components';
 
 interface IDefaultProps {
-  $color?: string;
-  $background?: string;
-  $size?: string;
+  $color?: TColorKeys;
+  $background?: TColorKeys;
+  $size?: TFontSizeKeys;
 }
 
 export const DefaultStyle = styled.button<IDefaultProps>`
@@ -13,12 +14,19 @@ export const DefaultStyle = styled.button<IDefaultProps>`
   font-weight: bold;
   gap: 10px;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  text-align: center;
   cursor: pointer;
 
-  ${({ $color, $background, $size }) => css`
-    color: ${$color ?? '#fff'};
-    background: ${$background ?? '#319795'};
-    font-size: ${$size};
-  `}
+  :hover {
+    background: #a7a7a7;
+  }
+
+  ${({ $color, $background, $size, theme }) => {
+    return `
+      color: ${theme.colors[$color ?? 'primaryContrast']};
+      background: ${theme.colors[$background ?? 'primary']};
+      font-size: ${theme.fontSizes[$size ?? 'md']}
+  `;
+  }}
 `;

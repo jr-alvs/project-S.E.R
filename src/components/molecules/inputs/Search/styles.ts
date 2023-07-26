@@ -2,8 +2,11 @@ import styled from 'styled-components';
 
 export const ContainerSearch = styled.div`
   display: flex;
-  border: 1px solid #4a5568a3;
-  border-radius: 5px;
+
+  ${({ theme }) => `
+    border: 1px solid ${theme.colors.textDetail};
+    border-radius: ${theme.radius.sm}
+  `}
 `;
 
 export const SearchStyle = styled.input`

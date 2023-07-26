@@ -11,12 +11,11 @@ export const ContainerBox = styled.div<IContainerBoxProps>`
   padding: 1rem;
   border-radius: 5px;
   background: #fff;
-  width: 100%;
 
   ${({ $marginTop, $marginBottom, $marginLeft, $marginRight }) => css`
-    margin-top: ${$marginTop};
-    margin-bottom: ${$marginBottom};
-    margin-left: ${$marginLeft};
-    margin-right: ${$marginRight};
+    margin-top: ${$marginTop ?? '0px'};
+    margin-bottom: ${$marginBottom ?? '0px'};
+    margin-left: ${$marginLeft ?? '0px'};
+    margin-right: ${$marginRight ?? '0px'};
   `}
 `;
