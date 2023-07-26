@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-
+import { Header } from '@components/molecules/Header';
 import { Sidebar } from '@components/templates/SideBar';
 import { ContainerLayout } from './styles';
-import { Header } from '@/components/molecules/Header';
 
 export const Layout = () => {
   const navigate = useNavigate();
